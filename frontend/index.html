@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Velora Commerce | Premium Shopping</title>
+    <meta
+      name="description"
+      content="Modern e-commerce storefront for premium products, fashion, electronics, and lifestyle essentials."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container nav-wrap">
+        <a href="/" class="brand">
+          <span class="brand-mark">V</span>
+          Velora
+        </a>
+
+        <div class="nav-search">
+          <input id="searchInput" type="search" placeholder="Search products, categories, items..." />
+          <button id="searchButton" aria-label="Search">Search</button>
+        </div>
+
+        <nav class="nav-links">
+          <a href="#featured">Home</a>
+          <a href="#products">Shop</a>
+          <a href="#categories">Categories</a>
+          <a href="/orders.html">Orders</a>
+        </nav>
+
+        <div class="nav-actions">
+          <button id="authButton" class="ghost-btn">Login</button>
+          <a href="/cart.html" class="cart-pill">
+            <span>Cart</span>
+            <span id="cartCount" class="cart-count">0</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="featured">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <span class="eyebrow">New collection</span>
+            <h1>Upgrade your everyday essentials.</h1>
+            <p>
+              Discover premium quality products for work, travel, wellness, and style with world-class value.
+            </p>
+            <div class="hero-actions">
+              <a href="#products" class="primary-btn">Shop now</a>
+              <button id="browseCategoriesBtn" class="secondary-btn">Browse categories</button>
+            </div>
+            <ul class="hero-stats">
+              <li><strong>20k+</strong><span>Happy customers</span></li>
+              <li><strong>4.9/5</strong><span>Store rating</span></li>
+              <li><strong>2-day</strong><span>Fast delivery</span></li>
+            </ul>
+          </div>
+
+          <div class="hero-visual">
+            <div class="floating-card card-one">
+              <span>Best seller</span>
+              <strong>UrbanFlex Pro</strong>
+              <small>From $119</small>
+            </div>
+            <div class="product-showcase">
+              <img
+                src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=900&q=80"
+                alt="Featured product"
+              />
+            </div>
+            <div class="floating-card card-two">
+              <span>Free shipping</span>
+              <strong>On orders $75+</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="categories" id="categories">
+        <div class="container">
+          <div class="section-heading">
+            <span class="eyebrow">Popular categories</span>
+            <h2>Shop by department</h2>
+          </div>
+          <div id="categoryList" class="category-grid"></div>
+        </div>
+      </section>
+
+      <section class="products-section" id="products">
+        <div class="container">
+          <div class="section-heading split-head">
+            <div>
+              <span class="eyebrow">Curated picks</span>
+              <h2>Featured products</h2>
+            </div>
+            <div class="filter-tools">
+              <button class="chip active" data-category="All">All</button>
+              <button class="chip" data-category="Electronics">Electronics</button>
+              <button class="chip" data-category="Accessories">Accessories</button>
+              <button class="chip" data-category="Apparel">Apparel</button>
+              <button class="chip" data-category="Home">Home</button>
+            </div>
+          </div>
+
+          <div id="loadingState" class="loading-state hidden">Loading products...</div>
+          <div id="productGrid" class="product-grid"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div>
+          <div class="brand footer-brand">
+            <span class="brand-mark">V</span>
+            Velora
+          </div>
+          <p>Premium essentials built for modern living.</p>
+        </div>
+        <div class="footer-meta">
+          <a href="/orders.html">My orders</a>
+          <a href="/cart.html">Cart</a>
+          <a href="#featured">Support</a>
+        </div>
+      </div>
+    </footer>
+
+    <div id="authModal" class="modal hidden" aria-hidden="true">
+      <div class="modal-panel">
+        <button class="close-modal" id="closeAuthModal" aria-label="Close authentication modal">×</button>
+        <div class="auth-tabs">
+          <button class="tab-btn active" data-auth-tab="login">Login</button>
+          <button class="tab-btn" data-auth-tab="register">Register</button>
+        </div>
+
+        <form id="authForm" class="auth-form">
+          <div id="registerNameWrap" class="field hidden">
+            <label for="registerName">Full name</label>
+            <input id="registerName" name="name" type="text" placeholder="Jane Smith" />
+          </div>
+
+          <div class="field">
+            <label for="authEmail">Email</label>
+            <input id="authEmail" name="email" type="email" placeholder="you@example.com" required />
+          </div>
+
+          <div class="field">
+            <label for="authPassword">Password</label>
+            <input id="authPassword" name="password" type="password" placeholder="••••••••" required />
+          </div>
+
+          <button type="submit" class="primary-btn full-width" id="authSubmitBtn">Login</button>
+          <p id="authMessage" class="auth-message"></p>
+        </form>
+      </div>
+    </div>
+
+    <div id="productModal" class="modal hidden" aria-hidden="true">
+      <div class="product-modal-panel">
+        <button class="close-modal" id="closeProductModal" aria-label="Close product details">×</button>
+        <div class="product-detail-layout">
+          <div class="product-detail-media">
+            <img id="detailImage" src="" alt="" />
+          </div>
+          <div class="product-detail-content">
+            <span id="detailCategory" class="eyebrow"></span>
+            <h3 id="detailName"></h3>
+            <div id="detailRating" class="rating-line"></div>
+            <p id="detailDescription"></p>
+            <div class="detail-price-row">
+              <strong id="detailPrice"></strong>
+              <span id="detailStock"></span>
+            </div>
+
+            <div class="qty-box">
+              <label for="detailQuantity">Quantity</label>
+              <div class="qty-control">
+                <button type="button" data-qty-action="decrease">−</button>
+                <input id="detailQuantity" type="number" min="1" value="1" />
+                <button type="button" data-qty-action="increase">+</button>
+              </div>
+            </div>
+
+            <button id="addToCartDetailBtn" class="primary-btn full-width">Add to cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/app.js"></script>
+  </body>
+</html>

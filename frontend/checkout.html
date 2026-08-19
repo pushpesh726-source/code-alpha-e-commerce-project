@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout | Velora Commerce</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <header class="topbar compact-topbar">
+      <div class="container nav-wrap">
+        <a href="/" class="brand">
+          <span class="brand-mark">V</span>
+          Velora
+        </a>
+
+        <nav class="nav-links">
+          <a href="/">Home</a>
+          <a href="/cart.html">Cart</a>
+          <a href="/orders.html">Orders</a>
+        </nav>
+
+        <div class="nav-actions">
+          <button id="authButton" class="ghost-btn">Login</button>
+          <a href="/cart.html" class="cart-pill">
+            <span>Cart</span>
+            <span id="cartCount" class="cart-count">0</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main class="page-shell">
+      <div class="container checkout-layout">
+        <section class="checkout-form-panel">
+          <div class="section-heading">
+            <span class="eyebrow">Secure checkout</span>
+            <h2>Customer details</h2>
+          </div>
+
+          <form id="checkoutForm" class="checkout-form">
+            <div class="field-grid two-col">
+              <div class="field">
+                <label for="fullName">Full name</label>
+                <input id="fullName" name="fullName" type="text" required />
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" required />
+              </div>
+            </div>
+
+            <div class="field-grid two-col">
+              <div class="field">
+                <label for="phone">Phone</label>
+                <input id="phone" name="phone" type="tel" required />
+              </div>
+              <div class="field">
+                <label for="country">Country</label>
+                <input id="country" name="country" type="text" required />
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="address">Address</label>
+              <input id="address" name="address" type="text" required />
+            </div>
+
+            <div class="field-grid three-col">
+              <div class="field">
+                <label for="city">City</label>
+                <input id="city" name="city" type="text" required />
+              </div>
+              <div class="field">
+                <label for="state">State</label>
+                <input id="state" name="state" type="text" required />
+              </div>
+              <div class="field">
+                <label for="zipCode">ZIP</label>
+                <input id="zipCode" name="zipCode" type="text" required />
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="paymentMethod">Payment method</label>
+              <select id="paymentMethod" name="paymentMethod">
+                <option value="Card">Credit / Debit Card</option>
+                <option value="Cash on Delivery">Cash on Delivery</option>
+                <option value="PayPal">PayPal</option>
+              </select>
+            </div>
+
+            <button type="submit" class="primary-btn full-width" id="placeOrderBtn">Place order</button>
+            <p id="checkoutMessage" class="auth-message"></p>
+          </form>
+        </section>
+
+        <aside class="summary-panel">
+          <h3>Order summary</h3>
+          <div id="checkoutSummary" class="checkout-summary-list"></div>
+          <div class="summary-row total-row">
+            <span>Total</span>
+            <strong id="checkoutTotal">$0.00</strong>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <div id="authModal" class="modal hidden" aria-hidden="true">
+      <div class="modal-panel">
+        <button class="close-modal" id="closeAuthModal" aria-label="Close authentication modal">×</button>
+        <div class="auth-tabs">
+          <button class="tab-btn active" data-auth-tab="login">Login</button>
+          <button class="tab-btn" data-auth-tab="register">Register</button>
+        </div>
+
+        <form id="authForm" class="auth-form">
+          <div id="registerNameWrap" class="field hidden">
+            <label for="registerName">Full name</label>
+            <input id="registerName" name="name" type="text" placeholder="Jane Smith" />
+          </div>
+
+          <div class="field">
+            <label for="authEmail">Email</label>
+            <input id="authEmail" name="email" type="email" placeholder="you@example.com" required />
+          </div>
+
+          <div class="field">
+            <label for="authPassword">Password</label>
+            <input id="authPassword" name="password" type="password" placeholder="••••••••" required />
+          </div>
+
+          <button type="submit" class="primary-btn full-width" id="authSubmitBtn">Login</button>
+          <p id="authMessage" class="auth-message"></p>
+        </form>
+      </div>
+    </div>
+
+    <script src="/js/app.js"></script>
+  </body>
+</html>

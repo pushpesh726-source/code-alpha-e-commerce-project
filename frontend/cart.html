@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Cart | Velora Commerce</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <header class="topbar compact-topbar">
+      <div class="container nav-wrap">
+        <a href="/" class="brand">
+          <span class="brand-mark">V</span>
+          Velora
+        </a>
+
+        <nav class="nav-links">
+          <a href="/">Home</a>
+          <a href="/orders.html">Orders</a>
+          <a href="/checkout.html">Checkout</a>
+        </nav>
+
+        <div class="nav-actions">
+          <button id="authButton" class="ghost-btn">Login</button>
+          <a href="/cart.html" class="cart-pill">
+            <span>Cart</span>
+            <span id="cartCount" class="cart-count">0</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main class="page-shell">
+      <div class="container cart-page">
+        <section class="cart-section">
+          <div class="section-heading split-head">
+            <div>
+              <span class="eyebrow">Shopping bag</span>
+              <h2>Your cart</h2>
+            </div>
+            <a href="/" class="link-button">Continue shopping</a>
+          </div>
+
+          <div id="cartLoading" class="loading-state hidden">Loading cart...</div>
+          <div id="cartItems" class="cart-items"></div>
+        </section>
+
+        <aside class="summary-panel">
+          <h3>Order summary</h3>
+          <div class="summary-row">
+            <span>Subtotal</span>
+            <strong id="subtotalValue">$0.00</strong>
+          </div>
+          <div class="summary-row">
+            <span>Shipping</span>
+            <strong>Free</strong>
+          </div>
+          <div class="summary-row total-row">
+            <span>Total</span>
+            <strong id="totalValue">$0.00</strong>
+          </div>
+          <a href="/checkout.html" class="primary-btn full-width checkout-link">Proceed to checkout</a>
+        </aside>
+      </div>
+    </main>
+
+    <div id="authModal" class="modal hidden" aria-hidden="true">
+      <div class="modal-panel">
+        <button class="close-modal" id="closeAuthModal" aria-label="Close authentication modal">×</button>
+        <div class="auth-tabs">
+          <button class="tab-btn active" data-auth-tab="login">Login</button>
+          <button class="tab-btn" data-auth-tab="register">Register</button>
+        </div>
+
+        <form id="authForm" class="auth-form">
+          <div id="registerNameWrap" class="field hidden">
+            <label for="registerName">Full name</label>
+            <input id="registerName" name="name" type="text" placeholder="Jane Smith" />
+          </div>
+
+          <div class="field">
+            <label for="authEmail">Email</label>
+            <input id="authEmail" name="email" type="email" placeholder="you@example.com" required />
+          </div>
+
+          <div class="field">
+            <label for="authPassword">Password</label>
+            <input id="authPassword" name="password" type="password" placeholder="••••••••" required />
+          </div>
+
+          <button type="submit" class="primary-btn full-width" id="authSubmitBtn">Login</button>
+          <p id="authMessage" class="auth-message"></p>
+        </form>
+      </div>
+    </div>
+
+    <script src="/js/app.js"></script>
+  </body>
+</html>
